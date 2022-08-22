@@ -7,6 +7,7 @@ def main():
 
     again = True
     reason = "Wrong move,"
+
     while again == True:
         try:
             Map.show()
