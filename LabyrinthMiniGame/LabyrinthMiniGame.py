@@ -1,6 +1,93 @@
 import sys, os
 
 
+def main():
+
+    print(" You woke up in mysterious place.\n Everything around you seems familiar yet unknown.\n All you know is that you take one step at a time,\n if it is right one - good, if not - you are out of lives.\n")
+
+    again = True
+    reason = "Wrong move,"
+    while again == True:
+        try:
+            Map.show()
+            choice = choice2dr("up","right")
+            Move.up(choice, "up")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice2dr("up","right")
+            Move.up(choice, "up")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice2dr("up","right")
+            Move.up(choice, "up")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice2dr("up","right")
+            Move.right(choice, "right")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice3dr("up","right", "down")
+            Move.right(choice, "right")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice3dr("up","right", "down")
+            Move.down(choice, "down")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice3dr("left","right", "down")
+            Move.right(choice, "right")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice2dr("up","down")
+            Move.down(choice, "down")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice3dr("left","right", "down")
+            Move.right(choice, "right")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice3dr("up","right", "down")
+            Move.up(choice, "up")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice2dr("up","up")
+            Move.up(choice, "up")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice2dr("up","left")
+            Move.up(choice, "up")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice2dr("left","up")
+            Move.left(choice, "left") 
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice3dr("left","up", "down")
+            Move.up(choice, "up")
+            if Move.isSafe != True: sys.exit(1)
+
+            choice = choice2dr("left","right")
+            Move.right(choice, "right")
+            if Move.isSafe != True: sys.exit(1)
+
+            print("\nYou actualy did it!\n")
+            print("|-|-|-|$|$|\n\
+    |-|-|-|$|$|\n\
+    |$|$|$|-|$|\n\
+    |$|-|$|$|$|\n\
+    |$|-|-|$|$|\n\
+    |x|-|-|-|-|\n")
+            Move.isSafe = False
+            reason = "You did it! "
+            if Move.isSafe != True: sys.exit(1)
+  
+        except:
+           yorn = input(reason + "Try again? (y/n)\n")
+           if yorn == "y":
+               restart()
+           else:
+               again = False
+               print("We will meet soon enough again!")
 
 class Map:
     update = [["|-|","-|","-|","-|","F|"],
@@ -14,8 +101,6 @@ class Map:
       for c in r:
        print(c,end="")
       print()
-
-
 
 
 def choice2dr(dir1, dir2):
@@ -123,90 +208,5 @@ def restart():
       ["|x|","-|","-|","-|","-|"]]
 
 
-print(" You woke up in mysterious place.\n Everything around you seems familiar yet unknown.\n All you know is that you take one step at a time,\n if it is right one - good, if not - you are out of lives.\n")
-
-
-again = True
-reason = "Wrong move,"
-
-while again == True:
-    try:
-        Map.show()
-        choice = choice2dr("up","right")
-        Move.up(choice, "up")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice2dr("up","right")
-        Move.up(choice, "up")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice2dr("up","right")
-        Move.up(choice, "up")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice2dr("up","right")
-        Move.right(choice, "right")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice3dr("up","right", "down")
-        Move.right(choice, "right")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice3dr("up","right", "down")
-        Move.down(choice, "down")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice3dr("left","right", "down")
-        Move.right(choice, "right")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice2dr("up","down")
-        Move.down(choice, "down")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice3dr("left","right", "down")
-        Move.right(choice, "right")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice3dr("up","right", "down")
-        Move.up(choice, "up")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice2dr("up","up")
-        Move.up(choice, "up")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice2dr("up","left")
-        Move.up(choice, "up")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice2dr("left","up")
-        Move.left(choice, "left") 
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice3dr("left","up", "down")
-        Move.up(choice, "up")
-        if Move.isSafe != True: sys.exit(1)
-
-        choice = choice2dr("left","right")
-        Move.right(choice, "right")
-        if Move.isSafe != True: sys.exit(1)
-
-        print("\nYou actualy did it!\n")
-        print("|-|-|-|$|$|\n\
-|-|-|-|$|$|\n\
-|$|$|$|-|$|\n\
-|$|-|$|$|$|\n\
-|$|-|-|$|$|\n\
-|x|-|-|-|-|\n")
-        Move.isSafe = False
-        reason = "You did it! "
-        if Move.isSafe != True: sys.exit(1)
-  
-    except:
-       yorn = input(reason + "Try again? (y/n)\n")
-       if yorn == "y":
-           restart()
-       else:
-           again = False
-           print("We will meet soon enough again!")
+if __name__ == "__main__":
+    main()
