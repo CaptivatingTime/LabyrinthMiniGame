@@ -3,7 +3,9 @@ import sys, os
 
 def main():
 
-    print(" You woke up in mysterious place.\n Everything around you seems familiar yet unknown.\n All you know is that you take one step at a time,\n if it is right one - good, if not - you are out of lives.\n")
+    print(" You woke up in mysterious place.\n Everything around you seems familiar yet unknown.\n\
+ All you know is that you take one step at a time,\n\
+  if it is right one - good, if not - you are out of lives.\n")
 
     again = True
     reason = "Wrong move,"
@@ -73,11 +75,11 @@ def main():
 
             print("\nYou actualy did it!\n")
             print("|-|-|-|$|$|\n\
-    |-|-|-|$|$|\n\
-    |$|$|$|-|$|\n\
-    |$|-|$|$|$|\n\
-    |$|-|-|$|$|\n\
-    |x|-|-|-|-|\n")
+|-|-|-|$|$|\n\
+|$|$|$|-|$|\n\
+|$|-|$|$|$|\n\
+|$|-|-|$|$|\n\
+|x|-|-|-|-|\n")
             Move.isSafe = False
             reason = "You did it! "
             if Move.isSafe != True: sys.exit(1)
@@ -117,7 +119,7 @@ def choice3dr(dir1, dir2, dir3):
 def mapUpdate (direction,cordX,cordY):
     
     if direction == "up":
-        if cordY < 4:
+        if cordY < 4 and cordX - 2 != 0:
             Map.update[cordX-1][cordY] = "|*|"
         else:
             Map.update[cordX-1][cordY] = "*|"
@@ -136,7 +138,7 @@ def mapUpdate (direction,cordX,cordY):
 def removePath (direction,cordX,cordY):
     
     if direction == "up":
-        if cordY < 4:
+        if cordY < 4 and cordX - 2 != 0:
             Map.update[cordX-1][cordY] = "| |"
         else:
             Map.update[cordX-1][cordY] = " |"
