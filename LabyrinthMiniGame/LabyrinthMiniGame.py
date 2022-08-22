@@ -110,7 +110,6 @@ for r in map:
 
 
 choice = choice2dr("up","right")
-isSafe(choice, "up")
 Move.up(choice, "up")
 
 choice = choice2dr("up","right")
