@@ -1,4 +1,6 @@
 import sys, os
+from subprocess import call 
+  
 
 
 def main():
@@ -12,11 +14,13 @@ def main():
 
     while again == True:
         try:
+
             Map.show()
             choice = choice2dr("up","right")
             Move.up(choice, "up")
             if Move.isSafe != True: sys.exit(1)
-
+            
+         
             choice = choice2dr("up","right")
             Move.up(choice, "up")
             if Move.isSafe != True: sys.exit(1)
